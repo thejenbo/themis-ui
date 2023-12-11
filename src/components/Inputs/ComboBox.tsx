@@ -1,50 +1,51 @@
 import * as React from 'react';
 import { css, cx } from '@emotion/css';
-import { SelectPopover, SelectLabel, SelectProvider, SelectItem, Select as AriaSelect } from '@ariakit/react';
+import { Combobox as AriaCombobox, ComboboxProvider, ComboboxPopover, ComboboxItem } from '@ariakit/react';
 import { Spacing } from '../../common/spacing';
 import { Colors } from '../../common/colors';
 
-type SelectProps = {
+type ComboBoxProps = {
     name: string;
     className?: string;
     optionClassName?: string;
     popoverClassName?: string;
     label: string;
     options: Array<{value: string}>;
+    placeholder?: string;
 }
 
-export const Select = ({ className, optionClassName, popoverClassName, label, name, options}: SelectProps) => {
+export const ComboBox = ({ className, optionClassName, popoverClassName, label, name, options, placeholder}: ComboBoxProps) => {
     const labelStyle = css`
     color: ${Colors.PRIMARY};
-    font-family: 'Montserrat', sans-serif;
+    font-family: Fonts.BODY;
     font-size: 20px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     display: inline-flex;
-    gap: ${Spacing.S};`;
+    gap: ${Spacing.XS};`;
 
     const selectStyle = css`
     color: ${Colors.PRIMARY};
     background-color: transparent;
     border: none;
-    padding: ${Spacing.S};
-    font-family: 'Montserrat', sans-serif;
+    padding: ${Spacing.XS};
+    font-family: Fonts.BODY;
     font-size: 20px;
     line-height: 24px;
-    font-weight: bold;
+    font-weight: 700;
     display: inline-flex;
-    gap: ${Spacing.S};
+    gap: ${Spacing.XS};
     border-bottom: 2px solid ${Colors.PRIMARY};`;
 
     return (
-    <SelectProvider>
-        <SelectLabel className={labelStyle}>{label}</SelectLabel>
-        <AriaSelect className="button" />
-        <SelectPopover gutter={4} sameWidth className="popover">
+    <ComboboxProvider>
+        <label className={labelStyle}>{label}</label>
+        <AriaCombobox className="button" />
+        <ComboboxPopover gutter={4} sameWidth className="popover">
             {options.map((option, i) => (
-                <SelectItem value={option.value} />
+                <ComboboxItem value={option.value} />
             ))}
-        </SelectPopover>
-    </SelectProvider>
+        </ComboboxPopover>
+    </ComboboxProvider>
     );
 }
