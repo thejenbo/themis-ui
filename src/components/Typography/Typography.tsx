@@ -8,40 +8,41 @@ type TypographyProps = {
     variant: 'headingPage' | 'headingSection' | 'headingSubsection' | 'caption' | 'body';
     bold?: boolean;
     children: React.ReactNode;
-    component: React.ElementType;
+    component?: React.ElementType;
+    color?: string;
 }
 
-export const Typography = ({ className, variant, bold, children, component }: TypographyProps) => {
+export const Typography = ({ className, variant, bold, children, component, color }: TypographyProps) => {
     const typeMap = {
         'headingPage': {
             component: 'h1',
-            family: Fonts.HEADING,
+            family: Fonts.HEADING.FAMILY,
             size: '4.209rem',
-            weight: 700,
+            weight: Fonts.HEADING.WEIGHTS.BOLD,
         },
         'headingSection': {
             component: 'h2',
-            family: Fonts.HEADING,
+            family: Fonts.HEADING.FAMILY,
             size: '2.802rem',
-            weight: 700,
+            weight: Fonts.HEADING.WEIGHTS.NORMAL,
         },
         'headingSubsection': {
             component: 'h3',
-            family: Fonts.HEADING,
+            family: Fonts.BODY.FAMILY,
             size: '1.868rem',
-            weight: 700,
+            weight: Fonts.BODY.WEIGHTS.BOLD,
         },
         'caption': {
             component: 'p',
-            family: Fonts.BODY,
+            family: Fonts.BODY.FAMILY,
             size: '0.625rem',
-            weight: 500,
+            weight: Fonts.BODY.WEIGHTS.NORMAL,
         },
         'body': {
             component: 'p',
-            family: Fonts.BODY,
+            family: Fonts.BODY.FAMILY,
             size: '1rem',
-            weight: bold ? 500 : 400,
+            weight: bold ? Fonts.BODY.WEIGHTS.BOLD : Fonts.BODY.WEIGHTS.NORMAL,
         },
     }
     const type = React.useMemo(() => typeMap[variant], [variant]);
@@ -49,7 +50,7 @@ export const Typography = ({ className, variant, bold, children, component }: Ty
 
 
     const typographyStyle = css`
-    color: ${Colors.PRIMARY};
+    color: ${color ?? Colors.TEXT};
     font-family: ${type.family};
     font-size: ${type.size};
     font-weight: ${type.weight};`;

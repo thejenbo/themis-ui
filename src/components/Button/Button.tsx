@@ -5,29 +5,33 @@ import { Spacing } from '../../common/spacing';
 import { Colors } from '../../common/colors';
 import { Fonts } from '../../common/fonts';
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     variant?: 'primary' | 'secondary';
     children: React.ReactNode;
     type?: 'button' | 'submit' | 'reset';
-    onClick: () => void;
+    onClick?: () => void;
 }
 
-export const Button = ({ className, variant, children, type, onClick }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({ className, variant, children, type, onClick, ...props }) => {
     const buttonStyle = css`
-    color: ${variant === 'primary' ? Colors.WHITE : Colors.PRIMARY};
+    color: ${variant === 'primary' ? Colors.BACKGROUND : Colors.TEXT};
     background-color: ${variant === 'primary' ? Colors.PRIMARY : 'transparent'};
-    border: ${variant === 'secondary' ? `2px solid ${Colors.PRIMARY}` : 'none'};
+    border: 2px solid ${Colors.PRIMARY};
     border-radius: 3px;
     padding: ${Spacing.S} ${Spacing.L};
-    font-family: ${Fonts.BODY};
+    font-family: ${Fonts.BODY.FAMILY};
     font-size: 20px;
-    font-weight: 700;
+    Fonts.BODY.WEIGHTS.BOLD;
     display: inline-flex;
-    gap: ${Spacing.XS};`;
+    gap: ${Spacing.XS};
+    
+    &:not(:disabled) {
+        cursor: pointer;
+    }`;
 
     return (
-        <AriaButton className={cx(buttonStyle, className)} type={type} onClick={onClick}>
+        <AriaButton className={cx(buttonStyle, className)} type={type} onClick={onClick} {...props}>
             {children}
         </AriaButton>
     );
