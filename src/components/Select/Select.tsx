@@ -18,7 +18,7 @@ type SelectProps = {
 export const Select = ({ className, optionClassName, popoverClassName, label, name, options}: SelectProps) => {
     const selectStyle = css`
     color: ${Colors.TEXT};
-    background-color: transparent;
+    background-color: ${Colors.BACKGROUND};
     border: none;
     padding: ${Spacing.XS};
     margin-bottom: ${Spacing.XS};

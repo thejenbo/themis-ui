@@ -16,7 +16,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({ className, variant, children, type, onClick, ...props }) => {
     const buttonStyle = css`
     color: ${variant === 'primary' ? Colors.BACKGROUND : Colors.TEXT};
-    background-color: ${variant === 'primary' ? Colors.PRIMARY : 'transparent'};
+    background-color: ${variant === 'primary' ? Colors.PRIMARY : Colors.BACKGROUND};
     border: 2px solid ${Colors.PRIMARY};
     border-radius: 3px;
     padding: ${Spacing.S} ${Spacing.L};

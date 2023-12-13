@@ -17,3 +17,11 @@ export const Default: Story = {
     placeholder: 'Please enter a sentence or two about your experience with our product.',
   },
 };
+
+export const characterCount: Story = {
+  args: {
+    label: 'Product feedback',
+    placeholder: 'Please enter a sentence or two about your experience with our product.',
+    maxLength: 150,
+  },
+};
