@@ -1,6 +1,6 @@
 import React from 'react';
-import { Colors } from '../../common/colors';
-import { Spacing } from '../../common/spacing';
+import { Colors } from '../../utils/colors';
+import { Spacing } from '../../utils/spacing';
 import { Typography } from '../../components/Typography/Typography';
 
 const containerStyle = {

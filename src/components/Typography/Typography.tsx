@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, cx } from '@emotion/css';
-import { Colors } from '../../common/colors';
-import { Fonts } from '../../common/fonts';
+import { Colors } from '../../utils/colors';
+import { Fonts } from '../../utils/fonts';
 
 type TypographyProps = {
     className?: string;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { css, cx } from '@emotion/css';
 import { Button as AriaButton } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
-import { Colors } from '../../common/colors';
-import { Fonts } from '../../common/fonts';
+import { Spacing } from '../../utils/spacing';
+import { Colors } from '../../utils/colors';
+import { Fonts } from '../../utils/fonts';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;

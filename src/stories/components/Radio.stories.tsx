@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Radio } from '../../components/Radio/Radio';
-import { Spacing } from '../../common/spacing';
+import { Spacing } from '../../utils/spacing';
 
 const meta: Meta<typeof Radio> = {
   title: 'Inputs/Radio',

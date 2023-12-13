@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { css, cx } from '@emotion/css';
 import { SelectPopover, SelectLabel, SelectProvider, SelectItem, Select as AriaSelect } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
-import { Colors } from '../../common/colors';
-import { Fonts } from '../../common/fonts';
+import { Spacing } from '../../utils/spacing';
+import { Colors } from '../../utils/colors';
+import { Fonts } from '../../utils/fonts';
 import { labelStyle } from '../Input/Label';
 
 type SelectProps = {

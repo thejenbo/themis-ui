@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { css, cx } from '@emotion/css';
 import { Checkbox as AriaCheckbox } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
-import { Colors } from '../../common/colors';
+import { Spacing } from '../../utils/spacing';
+import { Colors } from '../../utils/colors';
 import { Label } from '../Input/Label';
 
 type TableProps = {

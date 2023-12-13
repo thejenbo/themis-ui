@@ -1,7 +1,7 @@
 import React from 'react';
-import { Spacing } from '../../common/spacing';
-import { Fonts } from '../../common/fonts';
-import { Colors } from '../../common/colors';
+import { Spacing } from '../../utils/spacing';
+import { Fonts } from '../../utils/fonts';
+import { Colors } from '../../utils/colors';
 
 export const FontsDisplay: React.FC = () => {
     return (

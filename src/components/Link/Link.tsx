@@ -1,34 +1,38 @@
 import * as React from 'react';
+import { Link as RouterLink, LinkProps as ReactRouterLinkProps } from 'react-router-dom';
 import { css, cx } from '@emotion/css';
-import { Checkbox as AriaCheckbox } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
-import { Colors } from '../../common/colors';
-import { Label } from '../Input/Label';
+import { Colors } from '../../utils/colors';
+import { Fonts } from '../../utils/fonts';
 
-type LinkProps = {
-    name: string;
+type BaseProps = {
     className?: string;
-    label: string;
-    placeholder?: string;
+    children: React.ReactNode;
 }
 
-export const Link = ({ className, label, name}: LinkProps) => {
-    const labelStyle = css`
-    display: flex;
-    margin-bottom: ${Spacing.XS};
-    gap: ${Spacing.XS};`;
+type RouterLinkProps = BaseProps & Omit<ReactRouterLinkProps, keyof BaseProps>;
 
-    const checkboxStyle = css`
-    padding: ${Spacing.XS};
-    gap: ${Spacing.XS};`;
+type AnchorTagProps = BaseProps & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseProps>
 
-    return (
-        <Label className={cx(labelStyle, className)}>
-            <AriaCheckbox
-                name={name}
-                className={checkboxStyle}
-            />
-            {label}
-        </Label>
-    );
+type LinkProps = RouterLinkProps | AnchorTagProps;
+
+export const Link = ({ className, ...props}: LinkProps) => {
+    const linkStyle = css`
+    color: ${Colors.LINK};
+    text-decoration: underline;
+    font-weight: ${Fonts.BODY.WEIGHTS.NORMAL};
+    font-family: ${Fonts.BODY.FAMILY};`;
+
+    if ('to' in props) {
+        return (
+            <RouterLink className={cx(linkStyle, className)} {...props}>
+                {props.children}
+            </RouterLink>
+        );
+    } else {
+        return (
+            <a className={cx(linkStyle, className)} {...props}>
+                {props.children}
+            </a>
+        );
+    }
 }

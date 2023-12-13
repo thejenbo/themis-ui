@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { css, cx } from '@emotion/css';
 import { Combobox as AriaCombobox, ComboboxProvider, ComboboxPopover, ComboboxItem } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
-import { Colors } from '../../common/colors';
-import { Fonts } from '../../common/fonts';
+import { Spacing } from '../../utils/spacing';
+import { Colors } from '../../utils/colors';
+import { Fonts } from '../../utils/fonts';
 import { Label } from '../Input/Label';
 
 interface ComboBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -22,7 +22,7 @@ export const ComboBox = ({ className, optionClassName, popoverClassName, label, 
     font-family: Fonts.BODY.FAMILY;
     font-size: 20px;
     line-height: 24px;
-    Fonts.BODY.WEIGHTS.BOLD;
+    font-weight: ${Fonts.BODY.WEIGHTS.BOLD};
     gap: ${Spacing.XS};`;
 
     const comboBoxStyle = css`
@@ -30,14 +30,15 @@ export const ComboBox = ({ className, optionClassName, popoverClassName, label, 
     background-color: ${Colors.BACKGROUND};
     border: none;
     padding: ${Spacing.XS};
-    font-family: Fonts.BODY.FAMILY;
+    font-family: ${Fonts.BODY.FAMILY};
     font-size: 20px;
     line-height: 24px;
-    Fonts.BODY.WEIGHTS.BOLD;
+    font-weight: ${Fonts.BODY.WEIGHTS.NORMAL};
     display: inline-flex;
     gap: ${Spacing.XS};
     border: 2px solid ${Colors.PRIMARY};
-    border-radius: 3px;`;
+    border-radius: 3px;
+    min-width: 300px;`;
 
     const popoverStyle = css`
     color: ${Colors.PRIMARY};
@@ -46,7 +47,7 @@ export const ComboBox = ({ className, optionClassName, popoverClassName, label, 
     padding: ${Spacing.XS};
     font-family: ${Fonts.BODY.FAMILY};
     font-size: 1rem;
-    Fonts.BODY.WEIGHTS.BOLD;
+    font-weight: ${Fonts.BODY.WEIGHTS.NORMAL};
     gap: ${Spacing.XS};
     border: 2px solid ${Colors.PRIMARY};
     border-radius: 3px;`;
@@ -59,7 +60,7 @@ export const ComboBox = ({ className, optionClassName, popoverClassName, label, 
     padding: ${Spacing.XS};
     font-family: ${Fonts.BODY.FAMILY};
     font-size: 1rem;
-    Fonts.BODY.WEIGHTS.BOLD;
+    font-weight: ${Fonts.BODY.WEIGHTS.NORMAL};
     border-radius: 3px;
     
     &:hover, &:focus {

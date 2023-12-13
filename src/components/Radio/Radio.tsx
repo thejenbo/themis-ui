@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css, cx } from '@emotion/css';
 import { RadioGroup, Radio as AriaRadio, RadioProvider, RadioOptions } from '@ariakit/react';
-import { Spacing } from '../../common/spacing';
+import { Spacing } from '../../utils/spacing';
 import { Label } from '../Input/Label';
 import { Error } from '../Input/Error';
 
