@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Radio } from '../../components/Radio/Radio';
+import { RadioGroup } from '../../components/Radios/RadioGroup';
 import { Spacing } from '../../utils/spacing';
 
-const meta: Meta<typeof Radio> = {
-  title: 'Inputs/Radio',
-  component: Radio,
+const meta: Meta<typeof RadioGroup> = {
+  title: 'Inputs/RadioGroup',
+  component: RadioGroup,
 };
 
 export default meta;
-type Story = StoryObj<typeof Radio>;
+type Story = StoryObj<typeof RadioGroup>;
 
 export const Horizontal: Story = {
   args: {

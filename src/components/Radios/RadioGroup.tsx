@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { css, cx } from '@emotion/css';
-import { RadioGroup, Radio as AriaRadio, RadioProvider, RadioOptions } from '@ariakit/react';
+import { css } from '@emotion/css';
+import { RadioGroup as AriaRadioGroup, Radio as AriaRadio, RadioProvider, RadioOptions } from '@ariakit/react';
 import { Spacing } from '../../utils/spacing';
 import { Label } from '../Input/Label';
 import { Error } from '../Input/Error';
@@ -15,7 +15,7 @@ type RadioGroupProps = {
     errorMessage?: string;
 }
 
-export const Radio = ({ className, optionClassName, label, name, options, optionOrientation = 'horizontal', errorMessage}: RadioGroupProps) => {
+export const RadioGroup = ({ className, optionClassName, label, name, options, optionOrientation = 'horizontal', errorMessage}: RadioGroupProps) => {
     const labelStyle = css`
     display: flex;
     gap: ${Spacing.XS}`
@@ -26,7 +26,7 @@ export const Radio = ({ className, optionClassName, label, name, options, option
 
     return (
     <RadioProvider>
-        <RadioGroup className={className}>
+        <AriaRadioGroup className={className}>
         <Label>{label}</Label>
         <div className={optionsContainerStyle}>
             {options.map((options, i) => (
@@ -37,7 +37,7 @@ export const Radio = ({ className, optionClassName, label, name, options, option
             ))}
         </div>
         {errorMessage && (<Error>{errorMessage}</Error>)}
-      </RadioGroup>
+      </AriaRadioGroup>
     </RadioProvider>
     );
 }
